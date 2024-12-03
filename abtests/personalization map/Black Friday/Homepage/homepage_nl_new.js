@@ -1,5 +1,5 @@
 /** 
- * new
+ * new 3
  * componentID: unique ID, creates namespace for CSS so each carousel 
  * can have diferent styles if needed
  * 
