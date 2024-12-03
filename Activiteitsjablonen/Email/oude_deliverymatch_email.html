@@ -1,0 +1,533 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+<meta name="x-apple-disable-message-reformatting">
+<meta name="format-detection" content="telephone=no,address=no,email=no,date=no,url=no">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark">
+
+<!--[if gte mso 9]>
+<xml>
+    <o:OfficeDocumentSettings>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+</xml>
+<![endif]-->
+
+<!-- Web Font / @font-face : BEGIN -->
+<!-- NOTE: If web fonts are not required, lines 23 - 41 can be safely removed. -->
+
+<!-- Desktop Outlook chokes on web font references and defaults to Times New Roman, so we force a safe fallback font. -->
+<!--[if mso]>
+    <style>
+        * {
+            font-family: sans-serif !important;
+        }
+    </style>
+<![endif]-->
+
+<!-- All other clients get the webfont reference; some will render the font and others will silently fail to the fallbacks. More on that here: https://web.archive.org/web/20190717120616/http://stylecampaign.com/blog/2015/02/webfont-support-in-email/ -->
+<!--[if !mso]><!-->
+<!-- insert web font reference, eg: <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'> -->
+<!--<![endif]-->
+
+<!-- Web Font / @font-face : END -->
+
+<!-- CSS Reset : BEGIN -->
+<style>
+    :root {
+        color-scheme: light dark;
+        supported-color-schemes: light dark;
+    }
+
+    html,
+    body {
+        margin: 0 auto !important;
+        padding: 0 !important;
+        height: 100% !important;
+        width: 100% !important;
+    }
+
+    * {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+    }
+
+    div[style*="margin: 16px 0"] {
+        margin: 0 !important;
+    }
+
+    #MessageViewBody,
+    #MessageWebViewDiv {
+        width: 100% !important;
+    }
+
+    table,
+    td {
+        mso-table-lspace: 0pt !important;
+        mso-table-rspace: 0pt !important;
+    }
+
+    table {
+        border-spacing: 0 !important;
+        border-collapse: collapse !important;
+        table-layout: fixed !important;
+        margin: 0 auto !important;
+    }
+
+    img {
+        -ms-interpolation-mode: bicubic;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    a[x-apple-data-detectors],
+    .unstyle-auto-detected-links a,
+    .aBn {
+        border-bottom: 0 !important;
+        cursor: default !important;
+        color: inherit !important;
+        text-decoration: none !important;
+        font-size: inherit !important;
+        font-family: inherit !important;
+        font-weight: inherit !important;
+        line-height: inherit !important;
+    }
+
+    .im {
+        color: inherit !important;
+    }
+
+    .a6S {
+        display: none !important;
+        opacity: 0.01 !important;
+    }
+
+    img.g-img+div {
+        display: none !important;
+    }
+
+
+    /* iPhone 4, 4S, 5, 5S, 5C, and 5SE *//*
+    @media only screen and (min-device-width: 320px) and (max-device-width: 374px) {
+        u~div .email-container {
+            min-width: 320px !important;
+        }
+    }
+
+    /* iPhone 6, 6S, 7, 8, and X *//*
+    @media only screen and (min-device-width: 375px) and (max-device-width: 413px) {
+        u~div .email-container {
+            min-width: 375px !important;
+        }
+    }
+
+    /* iPhone 6+, 7+, and 8+ *//*
+    @media only screen and (min-device-width: 414px) {
+        u~div .email-container {
+            min-width: 414px !important;
+        }
+    }*/
+</style>
+<!-- CSS Reset : END -->
+
+<!-- Progressive Enhancements : BEGIN -->
+<style>
+    /* Media Queries */
+    @media screen and (max-width: 480px) {
+
+        .stack-column,
+        .stack-column-center {
+            display: block !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            direction: ltr !important;
+        }
+
+        .stack-column-center {
+            text-align: center !important;
+        }
+
+        .center-on-narrow {
+            display: block !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            float: none !important;
+        }
+
+        table.center-on-narrow {
+            display: inline-block !important;
+        }
+
+        .email-container p {
+            font-size: 17px !important;
+        }
+    }
+
+    /* Dark Mode Styles : BEGIN */
+    @media (prefers-color-scheme: dark) {
+        .email-bg {
+            background: #ffffff  !important;
+        }
+
+        .darkmode-bg {
+            background: #222222 !important;
+        }
+
+        h1,
+        h2,
+        h3,
+        p,
+        li,
+        .darkmode-text,
+        .email-container a:not([class]) {
+            color: #2c2c2c !important;
+        }
+        .email-container a:not([class]) {
+            color: #ea580c !important;
+        }
+
+        td.button-td-primary,
+        td.button-td-primary a {
+            background: #ffffff !important;
+            border-color: #ffffff !important;
+            color: #ea580c !important;
+        }
+
+        td.button-td-primary:hover,
+        td.button-td-primary a:hover {
+            background: #cccccc !important;
+            border-color: #cccccc !important;
+        }
+
+        .footer td {
+            color: #aaaaaa !important;
+        }
+    }
+
+    /* Dark Mode Styles : END */
+</style>
+<!-- Progressive Enhancements : END -->
+
+
+<!--
+The email background color (#222222) is defined in three places:
+1. body tag: for most email clients
+2. center tag: for Gmail and Inbox mobile apps and web versions of Gmail, GSuite, Inbox, Yahoo, AOL, Libero, Comcast, freenet, Mail.ru, Orange.fr
+3. mso conditional: For Windows 10 Mail
+-->
+
+
+<center role="article" aria-roledescription="email" lang="en" style="width: 100%; background-color: #ffffff;" class="email-bg">
+    <!--[if mso | IE]>
+<table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #2f3234;" class="email-bg">
+<tr>
+<td>
+<![endif]-->
+
+
+
+    <!-- Preview Text Spacing Hack : END -->
+    <div style="max-width: 680px; margin: 0 auto;" class="email-container">
+        <!--[if mso]>
+        <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="680">
+        <tr>
+        <td>
+        <![endif]-->
+
+        <!-- Email Body : BEGIN -->
+        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: auto; background-color: #2f3234 !important;">
+            <!-- Email Header : BEGIN -->
+            <tbody><tr style="background-color: #2f3234;">
+                <!--<td style="background-color: #ffffff; padding: 20px 0; text-align: center">-->
+                    <td style="background-color:#ffffff;  padding: 20px; font-family: sans-serif; font-size: 12px; line-height: 15px; text-align: center; color: #2f3234;">
+                    <img src="https://www.kamera-express.nl/media/07ff88cc-d9f3-4dde-9405-4cf93e51f8c3/Logo-KE-Slogan.png" width="250" height="auto" alt="Logo_slogan" border="0" style="height: auto;  font-family: sans-serif; font-size: 15px; line-height: 15px;">
+                </td>
+            </tr>
+            <!-- Email Header : END -->
+            <!-- 1 Column Text + Button : BEGIN -->
+            <tr>
+                <td style="background-color: #f0f0f0;" class="darkmode-bg">
+                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                        <tbody><tr>
+                            <td style="background-color:#f0f0f0; padding: 20px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555; width: 95%;">
+                                <p style="margin: 0 0 10px;">{receiver_name}</p><p style="margin: 0 0 10px;"><b>Shipment ID:&nbsp;</b><span style="font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align);">{tracking_number}</span></p>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td>
+            </tr>
+            <!-- 1 Column Text + Button : END -->
+            <!-- Thumbnail Left, Text Right : BEGIN -->
+            <tr>
+                <td style="font-size:0; text-align: left; background-color: #ffffff;" class="darkmode-bg">
+                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                        <tbody><tr>
+                            <!-- dir=rtl is where the magic happens. This can be changed to dir=ltr to swap the alignment on wide while maintaining stack order on narrow. -->
+                            <td dir="ltr" height="100%" valign="top" width="100%" style="background-color: #f0f0f0; padding: 10px;">
+                                <!--[if mso]>
+                <table role="presentation" border="0" cellspacing="0" cellpadding="0" width="660" style="width: 660px;">
+                <tr>
+                <td valign="top" width="48" style="width: 48px;">
+                <![endif]-->
+                                <div style="display:inline-block; margin: 0 -1px; max-width: 48px; min-width:30px; vertical-align:top; width:100%;" class="stack-column">
+                                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                        <tbody><tr>
+                                            <td dir="ltr" style="padding: 20px 10px 20px 10px;">
+                                                <img src="https://www.kamera-express.nl/media/77daf580-9744-4673-9072-6daf85126777/NL.png" width="48" height="" border="0" alt="Nederlands" class="center-on-narrow" style="width: 100%; max-width: 48px; height: auto; font-family: sans-serif; font-size: 15px; line-height: 15px; color: #2c2c2c ;">
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </div>
+                                <!--[if mso]>
+                </td>
+                <td valign="top" width="440" style="width: 440px;">
+                <![endif]-->
+                                <div style="display:inline-block; margin: 0 -1px; max-width: 440px; min-width:280px; vertical-align:top;" class="stack-column">
+                                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                        <tbody><tr>
+                                            <td dir="ltr" style="font-family: sans-serif; font-size: 15px; line-height: 20px; color: #2c2c2c ; padding: 10px 10px 0; text-align: left;" class="center-on-narrow">
+                                                <p style="margin: 0 0 10px;">Je bestelling met ordernummer
+                                                    {order_number}
+                                                    ligt voor je klaar in onze winkel
+                                                    {pickupstore_name}. <br>
+
+                                                    Zorg dat je bij het afhalen je identificatie en deze (digitale)
+                                                    bevestiging
+                                                    bij
+                                                    de
+                                                    hand hebt.</p>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </div>
+                                <!--[if mso]>
+                </td>
+                </tr>
+                </table>
+                <![endif]-->
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td>
+            </tr>
+            <!-- Thumbnail Left, Text Right : END -->
+            <!-- Thumbnail Left, Text Right : BEGIN -->
+            <tr>
+                <td style="font-size:0; text-align: left; background-color: #ffffff;" class="darkmode-bg">
+                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                        <tbody><tr>
+                            <!-- dir=rtl is where the magic happens. This can be changed to dir=ltr to swap the alignment on wide while maintaining stack order on narrow. -->
+                            <td dir="ltr" height="100%" valign="top" width="100%" style="background-color: #f0f0f0; padding: 10px;">
+                                <!--[if mso]>
+                <table role="presentation" border="0" cellspacing="0" cellpadding="0" width="660" style="width: 660px;">
+                <tr>
+                <td valign="top" width="48" style="width: 48px;">
+                <![endif]-->
+                                <div style="display:inline-block; margin: 0 -1px; max-width: 48px; min-width:30px; vertical-align:top; width:100%;" class="stack-column">
+                                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                        <tbody><tr>
+                                            <td dir="ltr" style="padding: 20px 10px 20px 10px;">
+                                                <img src="https://www.kamera-express.nl/media/3eb5b4a1-756d-4abd-9707-4cac6ac44c28/Duits.png" width="48" height="" border="0" alt="Duits" class="center-on-narrow" style="width: 100%; max-width: 48px; height: auto; font-family: sans-serif; font-size: 15px; line-height: 15px; color: #2c2c2c ;">
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </div>
+                                <!--[if mso]>
+                </td>
+                <td valign="top" width="440" style="width: 440px;">
+                <![endif]-->
+                                <div style="display:inline-block; margin: 0 -1px; max-width: 440px; min-width:280px; vertical-align:top;" class="stack-column">
+                                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                        <tbody><tr>
+                                            <td dir="ltr" style="font-family: sans-serif; font-size: 15px; line-height: 20px; color: #2c2c2c ; padding: 10px 10px 0; text-align: left;" class="center-on-narrow">
+                                                <p style="margin: 0 0 10px;">Deine Bestellung mit Bestellnummer
+                                                    {order_number}
+                                                    liegt in unserer Filiale {pickupstore_name} zur Abholung bereit.
+                                                    <br>
+
+                                                    Bitte halte bei der Abholung deinen Ausweis und diese (digitale)
+                                                    Bestätigung
+                                                    parat.
+                                                </p>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </div>
+                                <!--[if mso]>
+                </td>
+                </tr>
+                </table>
+                <![endif]-->
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td>
+            </tr>
+            <!-- Thumbnail Left, Text Right : END -->
+            <!-- Thumbnail Left, Text Right : BEGIN -->
+            <tr>
+                <td style="font-size:0; text-align: left; background-color: #ffffff;" class="darkmode-bg">
+                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                        <tbody><tr>
+                            <!-- dir=rtl is where the magic happens. This can be changed to dir=ltr to swap the alignment on wide while maintaining stack order on narrow. -->
+                            <td dir="ltr" height="100%" valign="top" width="100%" style="background-color: #f0f0f0;  padding: 10px;">
+                                <!--[if mso]>
+                <table role="presentation" border="0" cellspacing="0" cellpadding="0" width="660" style="width: 660px;">
+                <tr>
+                <td valign="top" width="48" style="width: 48px;">
+                <![endif]-->
+                                <div style="display:inline-block; margin: 0 -1px; max-width: 48px; min-width:30px; vertical-align:top; width:100%;" class="stack-column">
+                                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                        <tbody><tr>
+                                            <td dir="ltr" style="padding: 20px 10px 20px 10px;">
+                                                <img src="https://www.kamera-express.nl/media/055cbab5-391a-4dce-988b-fc50add0b964/Frans.png" width="48" height="" border="0" alt="Frans" class="center-on-narrow" style="width: 100%; max-width: 48px; height: auto; font-family: sans-serif; font-size: 15px; line-height: 15px; color: #2c2c2c ;">
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </div>
+                                <!--[if mso]>
+                </td>
+                <td valign="top" width="440" style="width: 440px;">
+                <![endif]-->
+                                <div style="display:inline-block; margin: 0 -1px; max-width: 440px; min-width:280px; vertical-align:top;" class="stack-column">
+                                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                        <tbody><tr>
+                                            <td dir="ltr" style="font-family: sans-serif; font-size: 15px; line-height: 20px; color: #2c2c2c ; padding: 10px 10px 0; text-align: left;" class="center-on-narrow">
+                                                <p style="margin: 0 0 10px;">Votre commande avec le numéro
+                                                    {order_number} est prête pour vous dans notre magasin
+                                                    {pickupstore_name}.<br>
+
+                                                    Assurez-vous d'avoir avec vous votre carte d'identité ainsi que
+                                                    la confirmation de votre commande.</p>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </div>
+                                <!--[if mso]>
+                </td>
+                </tr>
+                </table>
+                <![endif]-->
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td>
+            </tr>
+            <!-- Thumbnail Left, Text Right : END -->
+            <!-- Thumbnail Left, Text Right : BEGIN -->
+            <tr>
+                <td style="font-size:0; text-align: left; background-color: #ffffff;" class="darkmode-bg">
+                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                        <tbody><tr>
+                            <!-- dir=rtl is where the magic happens. This can be changed to dir=ltr to swap the alignment on wide while maintaining stack order on narrow. -->
+                            <td dir="ltr" height="100%" valign="top" width="100%" style="background-color: #f0f0f0;  padding: 10px;">
+                                <!--[if mso]>
+                <table role="presentation" border="0" cellspacing="0" cellpadding="0" width="660" style="width: 660px;">
+                <tr>
+                <td valign="top" width="48" style="width: 48px;">
+                <![endif]-->
+                                <div style="display:inline-block; margin: 0 -1px; max-width: 48px; min-width:30px; vertical-align:top; width:100%;" class="stack-column">
+                                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                        <tbody><tr>
+                                            <td dir="ltr" style="padding: 20px 10px 20px 10px;">
+                                                <img src="https://www.kamera-express.nl/media/9622d119-db5d-4b8d-b9ab-9c766ddda499/Engels.png" width="48" height="" border="0" alt="Engels" class="center-on-narrow" style="width: 100%; max-width: 48px; height: auto; font-family: sans-serif; font-size: 15px; line-height: 15px; color: #2c2c2c ;">
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </div>
+                                <!--[if mso]>
+                </td>
+                <td valign="top" width="440" style="width: 440px;">
+                <![endif]-->
+                                <div style="display:inline-block; margin: 0 -1px; max-width: 440px; min-width:280px; vertical-align:top;" class="stack-column">
+                                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                        <tbody><tr>
+                                            <td dir="ltr" style="font-family: sans-serif; font-size: 15px; line-height: 20px; color: #2c2c2c ; padding: 10px 10px 0; text-align: left;" class="center-on-narrow">
+                                                <p style="margin: 0 0 10px;">Your order, with ordernumber
+                                                    {order_number} is ready for pick up at our store
+                                                    {pickupstore_name}.<br>
+                                                    Make sure to bring your ID and this (digital) confirmation.</p>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </div>
+                                <!--[if mso]>
+                </td>
+                </tr>
+                </table>
+                <![endif]-->
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td>
+            </tr>
+            <!-- Thumbnail Left, Text Right : END -->
+            <!-- 1 Column Text + Button : BEGIN -->
+            <tr>
+                <td style="background-color: #f0f0f0;" class="darkmode-bg">
+                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                        <tbody><tr>
+                            <td style="background-color:#f0f0f0; padding: 20px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555; width: 95%;">
+                                <p style="margin: 0 0 10px;">
+                                    <strong>Pick-up location</strong><br>
+                                    {pickupstore_address}<br>
+                                    {pickupstore_postcode}, {pickupstore_city}<br>
+                                    {items}
+                                </p>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td>
+            </tr>
+            <!-- 1 Column Text + Button : END -->
+
+
+        </tbody></table>
+        <!-- Email Footer : BEGIN -->
+        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="max-width: 680px;" class="footer">
+            <tbody><tr>
+                <td style="background-color:#2f3234;  padding: 20px; font-family: sans-serif; font-size: 12px; line-height: 15px; text-align: center; color: #ffffff;">
+                    <p><span style="font-family: 'Arial Black', sans-serif; color: #ffffff; font-weight: 600; font-size: 16px; line-height: 28px;">Volg
+                        ons:</span></p><br><br>
+                        <table style="color: #ffffff; font-family: 'Verdana', sans-serif; font-weight: 400; font-size: 14px; text-align: center; margin: 0 auto;" border="0" cellspacing="0" cellpadding="0">
+                            <tbody>
+                                <tr>
+                                    <td><a href="https://www.facebook.com/kameraexpress/" target="_blank" rel="noopener"><img style="display: block;" src="https://kamera-express.nl/media/6dde0fce-4958-451b-97f0-0494e4d6472c/instagram@2x.png" alt="" width="50"></a></td>
+                                    <td width="30">&nbsp;</td>
+                                    <td><a href="https://www.instagram.com/kameraexpress" target="_blank" rel="noopener"><img style="display: block;" src="https://kamera-express.nl/media/c71b9cd8-bf37-42b7-8599-95e785c90a1c/facebook@2x.png" alt="" width="50"></a></td>
+                                    <td width="30">&nbsp;</td>
+                                    <td><a href="https://www.youtube.com/user/KameraExpress" target="_blank" rel="noopener"><img style="display: block;" src="https://kamera-express.nl/media/94e72969-6aa3-48f7-be61-e710e95fb85d/youtube@2x.png" alt="" width="50"></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p style="color: #ffffff; font-family: 'Verdana', sans-serif; font-weight: 400; font-size: 14px;">
+                            <br><span style="color: #ffffff; font-family: 'Verdana', sans-serif; font-weight: 400; font-size: 14px;"><strong style="color: #ffffff !important;">Kunnen we je nog verder
+                                    helpen?</strong><br>Bezoek ons <a style="color: #ea580c; text-decoration: none;" href="https://helpcenter.kamera-express.nl/hc/nl" target="_blank" rel="noopener">Helpcenter</a> voor alle antwoorden! </span>
+                        </p>
+                        <p style="color: #ffffff; font-family: 'Verdana', sans-serif; font-weight: 400; font-size: 14px;">
+                            <br><span style="color: #ffffff; font-family: 'Verdana', sans-serif; font-weight: 400; font-size: 14px;">©
+                                1995 - 2023 Kamera Express |&nbsp;</span><a style="color: #ea580c; text-decoration: none;" href="https://www.kamera-express.be/openingstijden" target="_blank">
+                                Openingstijden</a>&nbsp;</p>
+                </td>
+            </tr>
+        </tbody></table>
+        <!-- Email Footer : END -->
+        <!-- Email Body : END -->
+        
+
+        <!--[if mso]>
+        </td>
+        </tr>
+        </table>
+        <![endif]-->
+    </div>
+
+    <!--[if mso | IE]>
+</td>
+</tr>
+</table>
+<![endif]-->
+</center>

@@ -1,0 +1,107 @@
+<!-- eigen_organisatie_naam -->
+string:if(
+
+this.invoice.sales_channel.is_webshop.equals(yesno:load(0)),
+"Kamera Express Rotterdam B.V.",
+this.invoice.sales_channel.default_address.fax
+)
+
+
+was dit: this.invoice.invoice_organization.name
+<!-- eigen_organisatie_straat_nr -->
+string:if(
+ this.invoice.sales_channel.is_webshop.equals(yesno:load(0)),
+ "Essebaan 55",
+ string:if(
+  saleslines:first({invoicelines,this.sales_line,this.invoice.equals(parent.invoice)}).isnotnull(),
+  string:first({
+   invoicelines,
+   this.sales_line.sales.sales_channel.default_address.street_and_number(),
+   this.invoice.equals(parent.invoice)
+  }),
+  this.invoice.invoice_organization.primary_address.street_and_number()
+ )
+)
+
+<!-- eigen_organisatie_postcode_plaats -->
+string:if(
+ this.invoice.sales_channel.is_webshop.equals(yesno:load(0)),
+ "2908 LJ Capelle a/d IJssel ".concat(
+  string:case(
+   this.culture.language.iso_code,
+   [<"nl","Nederland">,<"de","Niederlande">,<"fr","Pays-Bas">,<"en","Netherlands">,<"it","Paesi Bassi">,<"es","Países Bajos">],
+   "Nederland"
+  )
+ ),
+ string:if(
+  saleslines:first({invoicelines,this.sales_line,this.invoice.equals(parent.invoice)}).isnotnull(),
+  string:first({
+   invoicelines,
+   this.sales_line.sales.sales_channel.default_address.postal_code_and_city(),
+   this.invoice.equals(parent.invoice)
+  }),
+  this.invoice.invoice_organization.primary_address.postal_code_and_city()
+ )
+)
+<!-- eigen_organisatie_tel -->
+string:if(
+ this.invoice.sales_channel.is_webshop.equals(yesno:load(0)),
+ "085 88 88 013",
+ this.invoice.invoice_organization.telephone
+)
+<!-- eigen_organisatie_email -->
+
+<!-- eigen_organisatie_website? -->
+
+<!-- eigen_organisatie_kvk -->
+string:if(
+ this.invoice.sales_channel.is_webshop.equals(yesno:load(0)),
+ "24255575",
+ this.invoice.invoice_organization.chamber_of_commerce_account
+)
+<!-- eigen_organisatie_btw_auto -->
+string:if(
+ this.invoice.sales_channel.is_webshop.equals(yesno:load(0)),
+ "NL811909864B01",
+ string:if(
+ this.invoice.total_tax().isgreater(money:load(0)),
+ this.invoice.invoice_organization.vat_number_for_country(this.invoice.invoice_address.country).expressiontoolsifnull(
+  this.invoice.invoice_organization.vat_number_for_primary_address()
+ ),
+ this.invoice.invoice_organization.vat_number_for_primary_address()
+)
+)
+<!-- eigen_organisatie_iban -->
+string:if(
+ this.invoice.sales_channel.is_webshop.equals(yesno:load(0)),
+ "NL57ABNA0403549701",
+ this.invoice.invoice_organization.primary_bank_account.iban
+)
+<!-- eigen_organisatie_bic -->
+string:if(
+ this.invoice.sales_channel.is_webshop.equals(yesno:load(0)),
+ "ABNANL2A",
+ this.invoice.invoice_organization.primary_bank_account.bic
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+string:if(
+ this.activity.invoice.sales_channel.is_webshop.equals(yesno:load(0)),
+ "Kamera Express Rotterdam B.V.",
+ this.activity.invoice.sales_channel.default_address.fax
+)

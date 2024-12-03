@@ -1,0 +1,35 @@
+// JavaScript code for a new checkbox
+<script>
+function createCustomCheckbox() {
+    const parser = new DOMParser();
+    const customSpan = parser.parseFromString('<span class="custom-checkbox"></span>', 'text/html').body.firstChild; //Create the custom checkbox
+    const firstSpanParent = document.querySelector(''); //Parent of where the div/span will come
+    firstSpanParent.append(customSpan);
+}
+</script>
+
+// Styling for the checkbox
+
+<style>
+span.custom - checkbox {
+        background: url('data:image/svg+xml;base64,PHN2ZyBkYXRhLXYtMmIzNzExOWE9IiIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiB2aWV3Qm94PSIwIDAgMjAgMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgY2xhc3M9ImNoZWNrYm94LWljb24iPjxyZWN0IHg9IjAuNSIgeT0iMC41IiB3aWR0aD0iMTkiIGhlaWdodD0iMTkiIHJ4PSIzLjUiIGZpbGw9IndoaXRlIiBzdHJva2U9ImN1cnJlbnRDb2xvciI+PC9yZWN0Pjwvc3ZnPg==');
+        width: 20 px;
+        height: 20 px;
+        display: block;
+        background - size: cover;
+        position: absolute;
+    }
+
+    .checkbox label {
+        padding - left: 40 px;
+    }
+
+    .checkbox input {
+        display: none;
+    }
+
+    .checkbox input: checked + span.custom - checkbox {
+        background: url(data: image / svg + xml; base64, PHN2ZyBkYXRhLXYtMmIzNzExOWE9IiIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiB2aWV3Qm94PSIwIDAgMjAgMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgY2xhc3M9ImNoZWNrYm94LWljb24iPjxwYXRoIGQ9Ik0wIDRDMCAxLjc5MDg2IDEuNzkwODYgMCA0IDBIMTZDMTguMjA5MSAwIDIwIDEuNzkwODYgMjAgNFYxNkMyMCAxOC4yMDkxIDE4LjIwOTEgMjAgMTYgMjBINEMxLjc5MDg2IDIwIDAgMTguMjA5MSAwIDE2VjRaIiBmaWxsPSIjRUE1ODBDIj48L3BhdGg + IDxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMTUuMTM1NiA2Ljg2MTgxQzE1LjM5NTMgNy4xMjE1IDE1LjM5NTMgNy41NDI1NiAxNS4xMzU2IDcuODAyMjZMOC40Njg5MiAxNC40Njg5QzguMjA5MjIgMTQuNzI4NiA3Ljc4ODE3IDE0LjcyODYgNy41Mjg0NyAxNC40Njg5TDQuODYxODEgMTEuODAyM0M0LjYwMjExIDExLjU0MjYgNC42MDIxMSAxMS4xMjE1IDQuODYxODEgMTAuODYxOEM1LjEyMTUgMTAuNjAyMSA1LjU0MjU2IDEwLjYwMjEgNS44MDIyNiAxMC44NjE4TDcuOTk4NyAxMy4wNTgyTDE0LjE5NTEgNi44NjE4MUMxNC40NTQ4IDYuNjAyMTEgMTQuODc1OSA2LjYwMjExIDE1LjEzNTYgNi44NjE4MVoiIGZpbGw9IndoaXRlIj48L3BhdGg + PC9zdmc + );
+
+    }
+</style>

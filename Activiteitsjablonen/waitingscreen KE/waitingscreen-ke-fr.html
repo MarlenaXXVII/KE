@@ -1,0 +1,70 @@
+<style>
+    body {
+        background-image: url('https://www.kamera-express.nl/media/63e46a0f-5c51-42ef-a2b9-20109ac0d311/ke_blackfriday2023_wachtscherm_background.webp');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        font-family: Barlow,Arial,Helvetica,sans-serif;
+    }
+
+    #titel {
+        font-size: 50px;
+        text-align: center;
+        color: white;
+    }
+    #subtitel {
+        font-size: 20px;
+        text-align: center;
+        color: white;
+    }
+
+    #overlay {
+        margin: auto;
+        position: absolute;
+        top: 30%; left: 15%;
+        bottom: 20%; right: 15%;
+        background-color: rgba(0, 0, 0, 0.6);
+        color: #FFF;
+        z-index:5;
+    }
+    @media only screen and (max-width:600px)  { 
+        #titel{
+            font-size: 80px;
+        }
+        #subtitel{
+            font-size: 40px;
+        }
+    }
+</style>
+
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <div id="overlay">
+        <div id="titel">
+            <p>Merci de votre patience !</p>
+        </div>
+        <div id="subtitel">
+            <p>Notre site web est actuellement très occupé en raison du Black Friday. Par
+                conséquent, vous avez été placé temporairement dans une file d'attente.</p>
+        </div>
+        <div id="subtitel">
+            <p>Votre temps d'attente est de [XX] minutes.</p>
+        </div>
+        <div id="subtitel">
+            <p>&nbsp;</p>
+        </div>
+        <div id="subtitel">
+            <p>Il y a [XX] personnes alignées devant vous.</p>
+        </div>
+        <div id="subtitel">
+            <p>Cette page est mise à jour automatiquement toutes les quelques secondes.
+                N'actualisez pas cette page, ou vous perdrez votre place dans la file d'attente.</p>
+        </div>
+    </div>
+
+</body>
+
+</html>

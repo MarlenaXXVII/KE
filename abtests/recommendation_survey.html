@@ -1,0 +1,131 @@
+<head>
+
+    <body></body>
+    </head>
+    
+    <style type="text/css">
+        .spancross:hover>.svgcross:first-child path {
+            stroke: #ea0c27;
+        }
+    
+        .spancheck:hover>.svgcheck:first-child path {
+            stroke: #00a984;
+        }
+    
+        .K1-slider-title {
+            height: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+            font-family: Barlow, Arial, Helvetica, sans-serif;
+        }
+    
+        .container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+    
+        .thumbsdown {
+            background: url(https://www.kamera-express.nl/media/7077696d-5e1b-4079-9033-facdd88e8d67/duimpie-omlaag-svg.svg);
+            position: absolute;
+            width: 23px;
+            height: 22px;
+            display: block;
+            background-size: cover;
+            right: 10px;
+        }
+    
+        .thumbsdown:hover {
+            background: url(https://www.kamera-express.nl/media/ace8052d-2982-4e82-b73a-e5ddbc8cc20f/duimpie-omlaag-oranje-svg.svg);
+            position: absolute;
+            width: 24px;
+            height: 23px;
+            display: block;
+            background-size: cover;
+            right: 10px;
+        }
+    
+        .container input:checked~.thumbsdown {
+            background: url(https://www.kamera-express.nl/media/ace8052d-2982-4e82-b73a-e5ddbc8cc20f/duimpie-omlaag-oranje-svg.svg);
+            position: absolute;
+            width: 24px;
+            height: 23px;
+            display: block;
+            background-size: cover;
+        }
+    
+        .thumbsdown:after {
+            background: url(https://www.kamera-express.nl/media/ace8052d-2982-4e82-b73a-e5ddbc8cc20f/duimpie-omlaag-oranje-svg.svg);
+            position: absolute;
+            width: 24px;
+            height: 23px;
+            display: block;
+            background-size: cover;
+        }
+    
+    
+        .thumbsup {
+            background: url(https://www.kamera-express.nl/media/42a2672b-3eab-44c1-b5b1-84fc241c0c99/duimpie-omhoog-svg.svg);
+            position: absolute;
+            width: 23px;
+            height: 22px;
+            display: block;
+            background-size: cover;
+            right: 45px;
+        }
+    
+        .thumbsup:hover {
+            background: url(https://www.kamera-express.nl/media/46a2fcbf-a401-4201-8f50-15da99a6f711/duimpie-omhoog-oranje-svg.svg);
+            position: absolute;
+            width: 24px;
+            height: 23px;
+            display: block;
+            background-size: cover;
+            right: 45px;
+        }
+    
+        .container input:checked~.thumbsup {
+            background: url(https://www.kamera-express.nl/media/46a2fcbf-a401-4201-8f50-15da99a6f711/duimpie-omhoog-oranje-svg.svg);
+            position: absolute;
+            width: 24px;
+            height: 23px;
+            display: block;
+            background-size: cover;
+        }
+    
+        .thumbsup:after {
+            background: url(https://www.kamera-express.nl/media/42a2672b-3eab-44c1-b5b1-84fc241c0c99/duimpie-omhoog-svg.svg);
+            position: absolute;
+            width: 24px;
+            height: 23px;
+            display: block;
+            background-size: cover;
+        }
+    
+    
+        @media only screen and (min-width: 992px) {
+            .K1-slider-title h2 {
+                font-weight: 400;
+                font-size: 24px;
+            }
+        }
+    </style>
+    <div class="K1-slider-title">
+        <h2>Speciaal voor jou</h2>
+        <span>
+            <p style="margin-bottom: 0; opacity: 0.7">
+                Wat vind je van deze aanbevelingen?
+            </p>
+            <label class="container">
+                <input type="radio" name="radio">
+                <span class="checkmark thumbsup"></span>
+            </label>
+            <label class="container">
+                <input type="radio" name="radio">
+                <span class="checkmark thumbsdown"></span>
+            </label>
+        </span>
+    </div>

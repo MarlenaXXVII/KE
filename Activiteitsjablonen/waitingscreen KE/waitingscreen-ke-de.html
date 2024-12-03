@@ -1,0 +1,70 @@
+<style>
+    body {
+        background-image: url('https://www.kamera-express.nl/media/63e46a0f-5c51-42ef-a2b9-20109ac0d311/ke_blackfriday2023_wachtscherm_background.webp');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        font-family: Barlow,Arial,Helvetica,sans-serif;
+    }
+        #titel {
+            font-size: 50px;
+            text-align: center;
+            color: white;
+        }
+        #subtitel {
+            font-size: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        #overlay {
+            margin: auto;
+            position: absolute;
+            top: 30%; left: 15%;
+            bottom: 20%; right: 15%;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #FFF;
+            z-index:5;
+            padding: 5px;
+        }
+    @media (max-width:600px)  { 
+        #titel{
+            font-size: 30px;
+        }
+        #subtitel{
+            font-size: 13px;
+        }
+    }
+</style>
+
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <div id="overlay">
+        <div id="titel">
+            <p>Vielen Dank f&#252;r deine Geduld!</p>
+        </div>
+        <div id="subtitel">
+            <p>Unsere Website ist wegen des Black Friday derzeit sehr ausgelastet. Daher wurdest
+                du vor&#252;bergehend in eine Warteschlange eingereiht.</p>
+        </div>
+        <div id="subtitel">
+            <p>Deine Wartezeit betr&auml;gt [XX] Minuten.</p> 
+        </div>
+        <div id="subtitel">
+            <p>&nbsp;</p> 
+        </div>
+        <div id="subtitel">
+            <p>Es stehen [XX] Leute vor dir in der Schlange.</p>
+        </div>
+        <div id="subtitel">
+            <p>Diese Seite wird automatisch alle paar Sekunden aktualisiert. Aktualisiere diese Seite
+                nicht, sonst verlierst du deinen Platz in der Warteschlange.</p>
+        </div>
+    </div>
+
+</body>
+
+</html>

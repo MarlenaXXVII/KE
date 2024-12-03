@@ -1,0 +1,67 @@
+<style>
+    body {
+        background-image: url('https://www.kamera-express.nl/media/c16a389e-616c-43a1-af13-6d38341c57e0/ke_blackfriday2023_wachtscherm_Photospecialist.webp');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        font-family: Barlow,Arial,Helvetica,sans-serif;
+    }
+
+    #titel {
+        font-size: 50px;
+        text-align: center;
+        color: white;
+    }
+    #subtitel {
+        font-size: 20px;
+        text-align: center;
+        color: white;
+    }
+
+    #overlay {
+        margin: auto;
+        position: absolute;
+        top: 30%; left: 15%;
+        bottom: 20%; right: 15%;
+        background-color: rgba(0, 0, 0, 0.6);
+        color: #FFF;
+        z-index:5;
+    }
+    @media only screen and (max-width:600px)  { 
+        #titel{
+            font-size: 80px;
+        }
+        #subtitel{
+            font-size: 40px;
+        }
+    }
+</style>
+
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <div id="overlay">
+        <div id="titel">
+            <p>Thanks for your patience!</p>
+        </div>
+        <div id="subtitel">
+            <p>Our website is currently very busy due to Black Friday. Therefore, you have been
+                temporarily placed in a queue.</p>
+        </div>
+        <div id="subtitel">
+            <p>Your wait time is [XX] minutes.</p>
+        </div>
+        <div id="subtitel">
+            <p>There are [XX] people lined up in front of you.</p>
+        </div>
+        <div id="subtitel">
+            <p>This page is updated automatically every few seconds. Do not refresh this page, or
+                you will lose your spot in the queue.</p>
+        </div>
+    </div>
+
+</body>
+
+</html>
