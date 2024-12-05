@@ -44,7 +44,7 @@ def test_stappen():
             links = carousel.find_elements(By.TAG_NAME, "a")
             if links:
                 # Beperk de links tot de eerste vijf
-                limited_links = links[:5]
+                limited_links = links[:6]
                 
                 if limited_links:
                     # Kies een willekeurige link uit de eerste vijf
@@ -54,7 +54,7 @@ def test_stappen():
                     time.sleep(1)
                     # Klik op de willekeurige link
                     random_link.click()
-                    print("Stap 4: Willekeurige link (tussen 1-5) in de carousel aangeklikt")
+                    print("Stap 4: Willekeurige link (tussen 1-6) in de carousel aangeklikt")
                 else:
                     log_fout("Stap 4", "Geen links gevonden in de eerste vijf posities van het carousel")
             else:
@@ -69,7 +69,7 @@ def test_stappen():
             carousel = WebDriverWait(driver, 10).until(
                 EC.presence_of_element_located((By.CLASS_NAME, "product-grid"))
             )
-            print("Stap 4-a: Grid gevonden")
+            print("Stap 4: Grid gevonden")
             
             # Zoek alle <a>-tags binnen de carousel
             links = carousel.find_elements(By.TAG_NAME, "a")
