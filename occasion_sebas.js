@@ -9,6 +9,8 @@ const nlButton = document.querySelector('[productstatus="Niet meer leverbaar"]')
 const frButton = document.querySelector('[productstatus="Epuisé temporairement"]');
 const deButton = document.querySelector('[productstatus="Vorübergehend ausverkauft"]');
 
+
+
 if (nlButton || frButton || deButton) {
     console.log("Product is niet meer leverbaar. Alternatieven laden...");
 
@@ -111,17 +113,18 @@ if (nlButton || frButton || deButton) {
                     buySection.appendChild(recommendationsDiv);
 
                     let recommendationsShown = 0;
+                    if (item.title_nl.includes("occasion")) {
+                        console.log("occasion gevonden");
+                        if (data && data.length > 0) {
+                            for (let item of data) {
+                                const itemPrice = parseFloat(item.item_price_with_cashback || item.item_price || 0);
+                                const productRating = Math.round(100 * item.average_review_rating / 5);
+                                const ratingClass = productRating === 0 ? 'ab-rating-hidden' : '';
 
-                    if (data && data.length > 0) {
-                        for (let item of data) {
-                            const itemPrice = parseFloat(item.item_price_with_cashback || item.item_price || 0);
-                            const productRating = Math.round(100 * item.average_review_rating / 5);
-                            const ratingClass = productRating === 0 ? 'ab-rating-hidden' : '';
-
-                            if (itemPrice >= lowerBound && itemPrice <= upperBound) {
-                                const itemDiv = document.createElement('div');
-                                itemDiv.className = "pdp-reco";
-                                itemDiv.innerHTML = `
+                                if (itemPrice >= lowerBound && itemPrice <= upperBound) {
+                                    const itemDiv = document.createElement('div');
+                                    itemDiv.className = "pdp-reco";
+                                    itemDiv.innerHTML = `
                                 <div class="container-wrapper">
                                     <div class="item-image">
                                         <a href="${item.url}" target="_blank" style="text-decoration:none;">
@@ -144,21 +147,21 @@ if (nlButton || frButton || deButton) {
                                     </div>
                                 </div>
                                 `;
-                                recommendationsDiv.appendChild(itemDiv);
+                                    recommendationsDiv.appendChild(itemDiv);
 
-                                recommendationsShown++;
-                                if (recommendationsShown >= 2) break;  // Beperk tot 2 aanbevelingen
+                                    recommendationsShown++;
+                                    if (recommendationsShown >= 2) break;  // Beperk tot 2 aanbevelingen
+                                }
                             }
-                        }
 
-                        if (recommendationsShown === 0) {
-                            recommendationsDiv.innerHTML += "<p>Geen alternatieven gevonden binnen jouw prijsklasse.</p>";
+                            if (recommendationsShown === 0) {
+                                recommendationsDiv.innerHTML += "<p>Geen alternatieven gevonden binnen jouw prijsklasse.</p>";
+                            }
+                        } else {
+                            recommendationsDiv.innerHTML += "<p>Geen aanbevelingen gevonden.</p>";
                         }
-                    } else {
-                        recommendationsDiv.innerHTML += "<p>Geen aanbevelingen gevonden.</p>";
                     }
                 }
-
                 // Aanbevelingen ophalen via Exponea
                 if (typeof exponea !== 'undefined') {
                     exponea.getRecommendation(options);

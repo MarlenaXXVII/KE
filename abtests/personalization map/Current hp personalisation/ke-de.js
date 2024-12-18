@@ -43,19 +43,19 @@ function setProductRecommendations(options) {
         // if category_level_1_nl is NOT "Tweedehands" AND stock_level = 0 AND EOL = True Hide
         const validateProduct = (product) => {
             let valid = true;
-            if(product.active == false) {
+            if (product.active == false) {
                 valid = false;
             }
-            if(!product.image || product.image==null || product.image == 'https://www.kamera-express.nl/' || product.title == "") {
+            if (!product.image || product.image == null || product.image == 'https://www.kamera-express.nl/' || product.title == "") {
                 valid = false;
             }
-            if(product.category_level_1_nl == 'Tweedehands' || product.title.match('occasion')) {
+            if (product.category_level_1_nl == 'Tweedehands' || product.title.match('occasion')) {
                 // console.log('occasion!');
-                if( product.stock_level == 0 ) {
+                if (product.stock_level == 0) {
                     valid = false;
                 }
             } else {
-                if(product.stock_level == 0 && product.eol == true) {
+                if (product.stock_level == 0 && product.eol == true) {
                     // valid = false;
                 }
             }
@@ -65,16 +65,16 @@ function setProductRecommendations(options) {
         // filter products based on conditions of the validator
         let productData = [];
         recievedProductData.map((product) => {
-            if(validateProduct(product)) {
+            if (validateProduct(product)) {
                 productData.push(product);
             }
         })
 
-        if(!productData || productData.length < 4 || !PLACEMENT_ELEMENT) {
+        if (!productData || productData.length < 4 || !PLACEMENT_ELEMENT) {
             return;
         }
 
-        if(document.getElementById(COMPONENT_ID)) {
+        if (document.getElementById(COMPONENT_ID)) {
             return;
         }
 
@@ -86,36 +86,36 @@ function setProductRecommendations(options) {
             return ids;
         }
 
-        const formatPrice = (n) =>  n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        const formatPrice = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
         const getItemPartial = (item) => {
 
             let priceMain = '';
             let priceReminder = '';
 
-            if(item.item_price) {
-                if(item.item_price % 1 === 0) {
+            if (item.item_price) {
+                if (item.item_price % 1 === 0) {
                     priceMain = `${formatPrice(item.item_price)},-`
                 } else {
                     const priceSplit = item.item_price.toString().split('.');
                     priceMain = `${formatPrice(priceSplit[0])},`
                     priceReminder = priceSplit[1];
-                    if(priceReminder.length == 1) {
+                    if (priceReminder.length == 1) {
                         priceReminder = `${priceReminder}0`
                     }
                 }
             }
 
-            const productRating = Math.round(100*item.average_review_rating/5);
+            const productRating = Math.round(100 * item.average_review_rating / 5);
             const ratingClass = productRating === 0 ? 'ab-rating-hidden' : '';
-        
+
             const itemTemplate = `<a class=ab-rcmd-item data-id="${item.item_id}" href="${item.url}"><div class=ab-rcmd-item__img><img alt=""data-v-0aa41950=""height=200 loading=lazy src="${item.image}" width=200></div> ${item.text_wobbler ? `<span data-v-083af505 data-v-6d26c398 class="promotion-label-container promotion large sf-badge" style="--badge-color: false; --badge-background: false; max-width:100%;"> <span class="promotion-label-container-text">${item.text_wobbler}</span></span>` : `<span>&nbsp;</span>`}<div class=ab-rcmd-item__name><p>${item.title}</div><div class="ab-rating-wrapper ${ratingClass}"><div class="ab-rating"><span style="width: ${productRating}%;"></span></div><div class="ab-rating-votes">(${item.amount_of_reviews})</div></div><div class=ab-rcmd-item__price><p class=current-price><span>${priceMain}</span> <span class=decimal>${priceReminder}</span></div></a>`
             return itemTemplate;
         }
-        
+
         const getCarouselPartial = (data) => {
             let items = '';
-            if(data) {
+            if (data) {
                 data.map((item) => {
                     items += getItemPartial(item);
                 })
@@ -151,23 +151,23 @@ function setProductRecommendations(options) {
         // based on viewport width
         const getItemsToScroll = () => {
             const viewportWidth = document.querySelector('.ab-rcmd-carousel').offsetWidth;
-            const itemsToScroll = Math.floor(viewportWidth / (ITEM_WIDTH+GAP));
+            const itemsToScroll = Math.floor(viewportWidth / (ITEM_WIDTH + GAP));
             return itemsToScroll;
         }
-        
+
         const getMaxOffset = () => {
             const itemsToScroll = getItemsToScroll();
-            const maxOffset = itemsToScroll*Math.floor(productData.length/itemsToScroll) - itemsToScroll;
+            const maxOffset = itemsToScroll * Math.floor(productData.length / itemsToScroll) - itemsToScroll;
             return maxOffset;
         }
 
         const controllButtonsVisibility = (slider) => {
             const sliderWrapper = slider.closest('.ab-rcmd-carousel');
 
-            if(OFFSET == 0) {
+            if (OFFSET == 0) {
                 sliderWrapper.classList.add('ab-rcmd-noprev')
                 sliderWrapper.classList.remove('ab-rcmd-nonext')
-            } else if(OFFSET >= getMaxOffset()) {
+            } else if (OFFSET >= getMaxOffset()) {
                 sliderWrapper.classList.remove('ab-rcmd-noprev')
                 sliderWrapper.classList.add('ab-rcmd-nonext')
             } else {
@@ -181,12 +181,12 @@ function setProductRecommendations(options) {
         }
 
         const scrollSlider = (slider) => {
-            slider.scroll({left: OFFSET*(ITEM_WIDTH+GAP), behavior: 'smooth'});
+            slider.scroll({ left: OFFSET * (ITEM_WIDTH + GAP), behavior: 'smooth' });
         }
 
         const goNext = () => {
             const slider = getSlider();
-            if(slider) {
+            if (slider) {
                 OFFSET += getItemsToScroll();
                 scrollSlider(slider);
                 controllButtonsVisibility(slider);
@@ -194,7 +194,7 @@ function setProductRecommendations(options) {
         }
         const goPrev = () => {
             const slider = getSlider();
-            if(slider) {
+            if (slider) {
                 OFFSET -= getItemsToScroll();
                 scrollSlider(slider);
                 controllButtonsVisibility(slider);
@@ -207,36 +207,36 @@ function setProductRecommendations(options) {
         document.querySelector('head').append(styleElement);
 
         const carouselTemplate = getCarouselPartial(productData);
-        if(carouselTemplate) {
+        if (carouselTemplate) {
             const carouselHTML = parser.parseFromString(carouselTemplate, 'text/html').body.firstChild;
             // console.log('***');
             // console.log(carouselHTML);
 
             const injectAction = options.placement.action;
 
-            if(injectAction === 'append') {
+            if (injectAction === 'append') {
                 PLACEMENT_ELEMENT.append(carouselHTML);
-            } else if(injectAction === 'prepend') {
+            } else if (injectAction === 'prepend') {
                 PLACEMENT_ELEMENT.prepend(carouselHTML);
-            } else if(injectAction === 'after') {
+            } else if (injectAction === 'after') {
                 PLACEMENT_ELEMENT.after(carouselHTML);
-            } else if(injectAction === 'before') {
+            } else if (injectAction === 'before') {
                 PLACEMENT_ELEMENT.before(carouselHTML);
             }
 
 
-            setTimeout(function() {
+            setTimeout(function () {
                 const btnNext = document.getElementById(COMPONENT_ID).querySelector('.ab-rcmd-carousel-next');
                 const btnPrev = document.getElementById(COMPONENT_ID).querySelector('.ab-rcmd-carousel-prev');
-                if(btnNext) {
-                    btnNext.addEventListener('click', function(e) {
+                if (btnNext) {
+                    btnNext.addEventListener('click', function (e) {
                         e.preventDefault();
                         e.stopPropagation();
                         goNext();
                     })
                 }
-                if(btnPrev) {
-                    btnPrev.addEventListener('click', function(e) {
+                if (btnPrev) {
+                    btnPrev.addEventListener('click', function (e) {
                         e.preventDefault();
                         e.stopPropagation();
                         goPrev();
@@ -252,10 +252,10 @@ function setProductRecommendations(options) {
                     recommendation_id: RECOMMENDATION_ID
                 });
 
-                    // Click event
+                // Click event
                 const tiles = document.getElementById(COMPONENT_ID).querySelectorAll('.ab-rcmd-item');
                 tiles.forEach((tile) => {
-                    tile.addEventListener('click', function(e) {
+                    tile.addEventListener('click', function (e) {
                         const payload = {
                             action: "click",
                             item_id: tile.getAttribute('data-id'),
@@ -267,14 +267,14 @@ function setProductRecommendations(options) {
 
                 // console.log(getItemsToScroll());
                 // console.log(productData.length);
-                if(productData.length <= getItemsToScroll()) {
+                if (productData.length <= getItemsToScroll()) {
 
                     // console.log('remove button right');
                     const slider = getSlider();
                     const sliderWrapper = slider.closest('.ab-rcmd-carousel');
                     sliderWrapper.classList.add('ab-rcmd-nonext');
                 }
-                
+
             }, 200);
         }
     }
@@ -298,10 +298,10 @@ function hp_personalizedblocksq4() {
     // document.querySelector('head').append(hp_personalizedblocksq4);
 
 
- setProductRecommendations({
+    setProductRecommendations({
         componentId: 'hp_personalizedblocksq4_1',
         componentClasses: '',
-        recommendationID: '66016997e026b0d3486dae0e',
+        recommendationID: '671a3e1d176c0d8e4d07e19a',
         headline: 'Speziell für dich',
         styles: '',
         placement: {
@@ -327,12 +327,12 @@ function hp_personalizedblocksq4() {
 
 function setSyblingClassByParentTitle(title, clazz) {
     const titlesFr = document.querySelectorAll('.regular-title');
-    titlesFr.forEach(t=> {
-        if(t.textContent.trim() === title) {
+    titlesFr.forEach(t => {
+        if (t.textContent.trim() === title) {
             const gridTitle = t.closest('.grid-container');
-            if(gridTitle) {
+            if (gridTitle) {
                 const syb = gridTitle.nextElementSibling;
-                if(syb) {
+                if (syb) {
                     syb.classList.add(clazz);
                 }
             }
@@ -343,7 +343,7 @@ function setSyblingClassByParentTitle(title, clazz) {
 setSyblingClassByParentTitle('Bestseller Produkte', 'home-popular-products')
 setSyblingClassByParentTitle('Wähle deine Marke', 'home-brands')
 
-setTimeout(function() {
+setTimeout(function () {
     hp_personalizedblocksq4();
 }, 500);
 
